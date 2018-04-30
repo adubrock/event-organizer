@@ -14,7 +14,6 @@ https.get(url, res => {
   });
   res.on("end", () => {
     body = JSON.parse(body);
-    console.log(
       body.forEach(function(event) {
         if (eventNames.includes(event.event_name)) {
           var foundIndex = parsedEvents.findIndex(x => x.event_name == event.event_name);
@@ -26,8 +25,7 @@ https.get(url, res => {
           })
           eventNames.push(event.event_name)
         }
-      })
-    );
+      });
     parsedEvents.forEach(function(event) {
       csvData +=
           `${event.event_name},` +
